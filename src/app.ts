@@ -6,7 +6,6 @@ import dotenv from "dotenv";
 import loginRouter from "./routes/login";
 import protectedRouter from "./routes/protected";
 import githubSearchRoutes from "./routes/githubSearchRoutes";
-import { clear } from "console";
 
 
 dotenv.config();

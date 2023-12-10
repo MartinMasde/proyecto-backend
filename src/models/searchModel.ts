@@ -1,6 +1,4 @@
-
 import mongoose, { Document, Schema, Model, model } from 'mongoose';
-
 
 interface Search  extends Document {
 

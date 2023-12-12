@@ -37,14 +37,10 @@ db.once('open', () => {
 } );
 
 
-// const app = express();
-// const port = process.env.PORT;
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-// app.use('/api/users', userRoutes);
 app.use('/api/github/', githubSearchRoutes);
 
 app.use('/api', loginRouter);

@@ -46,8 +46,6 @@ app.use('/api/github/', githubSearchRoutes);
 app.use('/api', loginRouter);
 app.use('/api', protectedRouter);
 
-// app.use('/api/users', userRoutes);    // (definir userRoutes
-
 
 app.listen(port, () => {
     console.log(`Server started at http://localhost:${port}`);

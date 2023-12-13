@@ -1,6 +1,6 @@
-import { User } from '../models/User';
+import  User  from '../models/userModel';
 
-const users: User[] = [
+const users: any = [
     {
         id: 1,
         username: 'admin',
@@ -8,14 +8,14 @@ const users: User[] = [
     }
 ];
 
-export const findUserByUsername = (username: string): User | undefined => {
-    const result = users.find((user) => user?.username === username);
+export const findUserByUsername = (username: string): any | undefined => {
+    const result = users.find((user:any) => user?.username === username);
     return result;
 };
 
 export const saveUser = (username: string, password: string): void => {
     const newUserId = users.length + 1;
-    const newUser: User = {
+    const newUser: any = {
         id: newUserId,
         username,
         password

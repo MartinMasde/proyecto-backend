@@ -10,6 +10,18 @@ const octokit = new Octokit({
 export async function getReposByUsername(req: Request, res: Response) {
   const username = req.params.username;
 
+    //modifica la hora de un registro que ya esta en la BD y lo busco nuevamente
+    let modifayResponse;
+    try {
+          modifayResponse = await Search.updateOne(
+          {searchType:"users", queryOptions: { q: username}}, 
+          {$set: {date: new Date()}}
+          );
+          console.log("buscando", modifayResponse)
+        } catch (error) {
+          console.log(error + "error al buscar")
+    }
+
   try {
     if (!username || username?.length === 0) {
       return res
@@ -29,7 +41,10 @@ export async function getReposByUsername(req: Request, res: Response) {
         page: req.query?.page,
       },
     });
-    const dataToSave = await data.save();
+       // si no modifica un registro, lo crea
+    if(modifayResponse && modifayResponse.modifiedCount === 0){
+        const dataToSave = await data.save();
+      }
     res.json(users);
 
   } catch (error) {

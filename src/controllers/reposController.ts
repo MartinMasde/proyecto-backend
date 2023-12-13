@@ -1,4 +1,3 @@
-
 import { Request, Response } from 'express';
 import { Octokit } from "octokit";
 import Search from '../models/searchModel';
@@ -17,9 +16,11 @@ export async function getReposByUsername(req: Request, res: Response) {
           {searchType:"users", queryOptions: { q: username}}, 
           {$set: {date: new Date()}}
           );
-          console.log("buscando", modifayResponse)
+          res.send('Query updated in the database');
+          // console.log("buscando", modifayResponse)
         } catch (error) {
-          console.log(error + "error al buscar")
+          res.send('Query not found in the database');
+          // console.log(error + "error al buscar")
     }
 
   try {
@@ -44,6 +45,7 @@ export async function getReposByUsername(req: Request, res: Response) {
        // si no modifica un registro, lo crea
     if(modifayResponse && modifayResponse.modifiedCount === 0){
         const dataToSave = await data.save();
+        res.send('Query saved in the database');
       }
     res.json(users);
 

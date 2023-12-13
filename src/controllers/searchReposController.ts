@@ -16,9 +16,10 @@ export async function searchRepos(req: Request, res: Response) {
         {searchType:"repos", queryOptions: { q: repoName}}, 
         {$set: {date: new Date()}}
         );
-        console.log("buscando", modifayResponse)
+        // console.log("buscando", modifayResponse)
       } catch (error) {
-        console.log(error + "error al buscar")
+        res.send('Query not found in the database');
+        // console.log(error + "error al buscar")
   }
 
   try {
@@ -44,6 +45,7 @@ export async function searchRepos(req: Request, res: Response) {
     // si no modifica un registro, lo crea
     if(modifayResponse && modifayResponse.modifiedCount === 0){
       const dataToSave = await data.save();
+      res.send('Query saved in the database');
     }
     res.json(repos);
     

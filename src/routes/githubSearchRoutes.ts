@@ -1,4 +1,3 @@
-
 import express from 'express';
 import { searchRepos } from '../controllers/searchReposController';
 import { searchUsers } from '../controllers/searchUsersController';
@@ -16,12 +15,8 @@ router.get('/search/repos', searchRepos);
 router.get('/search/users', searchUsers);
 // GET ALL THE QUERIES FROM THE DATABASE
 router.get('/queries', getQueriesDB);
-
 // crear ruta para borrar un query de la base de datos
 router.delete('/delete/:id', deleteQueryDB);
-// crear ruta para borrar todos los queries de la base de datos
-
-
 
     
 export default router;

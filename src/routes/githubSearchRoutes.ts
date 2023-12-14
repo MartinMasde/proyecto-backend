@@ -4,6 +4,7 @@ import { searchUsers } from '../controllers/searchUsersController';
 import { getReposByUsername } from '../controllers/reposController';
 import { getQueriesDB } from '../controllers/queryController';
 import { deleteQueryDB } from '../controllers/deleteQueryController';
+import { getQueryById } from '../controllers/queryIdController';
 
 const router = express.Router();
 
@@ -15,8 +16,11 @@ router.get('/search/repos', searchRepos);
 router.get('/search/users', searchUsers);
 // GET ALL THE QUERIES FROM THE DATABASE
 router.get('/queries', getQueriesDB);
+// GET A QUERY FROM THE DATABASE BY ID
+router.get('/queries/:id', getQueryById);
 // crear ruta para borrar un query de la base de datos
 router.delete('/delete/:id', deleteQueryDB);
+
 
     
 export default router;

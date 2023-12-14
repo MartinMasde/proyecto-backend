@@ -45,7 +45,6 @@ export async function searchRepos(req: Request, res: Response) {
     // si no modifica un registro, lo crea
     if(modifayResponse && modifayResponse.modifiedCount === 0){
       const dataToSave = await data.save();
-      res.send('Query saved in the database');
     }
     res.json(repos);
     

@@ -1,5 +1,5 @@
-import User from "../models/userModel";
-import IUser from "../models/userModel"
+// import User from "../models/userModel";
+// import IUser from "../models/userModel"
 
 
 export const findUserByUsername = (username: string): any | undefined => {
@@ -12,3 +12,4 @@ export const saveUser = (username: string, password: string): void => {
 //   const newUser: User = { id: newUserId, username, password };
 //   users.push(newUser);
 };
+

@@ -17,7 +17,7 @@ export async function searchUsers(req: Request, res: Response) {
         );
         console.log("buscando", modifayResponse)
       } catch (error) {
-        console.log(error + "error al buscar")
+        console.log(error + "Error when searching.")
   }
 
   try {

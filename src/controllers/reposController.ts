@@ -16,7 +16,6 @@ export async function getReposByUsername(req: Request, res: Response) {
           {searchType:"users", queryOptions: { q: username}}, 
           {$set: {date: new Date()}}
           );
-          res.send('Query updated in the database');
           // console.log("buscando", modifayResponse)
         } catch (error) {
           res.send('Query not found in the database');
@@ -45,7 +44,6 @@ export async function getReposByUsername(req: Request, res: Response) {
        // si no modifica un registro, lo crea
     if(modifayResponse && modifayResponse.modifiedCount === 0){
         const dataToSave = await data.save();
-        res.send('Query saved in the database');
       }
     res.json(users);
 

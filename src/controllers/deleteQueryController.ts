@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
 import { Octokit } from "octokit";
 import Search from '../models/searchModel';
+import authMiddleware from '../middleware/auth';
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN || "",
 });
 
-export async function deleteQueryDB(req: Request, res: Response) {
-  
+export async function deleteQueryDB (req: Request, res: Response) {
     try {
         const id = req.params.id;
         const response = await Search.deleteOne({_id:id});

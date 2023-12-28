@@ -1,7 +1,6 @@
 import mongoose, { Document, Schema, Model, model } from 'mongoose';
 
 interface Search  extends Document {
-//AGREGAR FECHA DE CREACION
     searchType: string;
     date: Date;
     queryOptions: {

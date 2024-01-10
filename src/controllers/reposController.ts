@@ -5,7 +5,7 @@ import Search from '../models/searchModel';
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN || "",
 });
-
+// MUESTRA LOS REPOSITORIOS DE UN USUARIO
 export async function getReposByUsername(req: Request, res: Response) {
   const username = req.params.username;
 
